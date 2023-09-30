@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "204582928566",
+    "project_id": "astrolex-app",
+    "storage_bucket": "astrolex-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204582928566:android:90eefe5963f15e94436617",
+        "android_client_info": {
+          "package_name": "com.cotr.astrolex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCbpYeV_LMwTVWHtEtSyi99Sj49r_UxgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

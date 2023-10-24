@@ -23,12 +23,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: AiLibrarianView(key: args.key),
       );
     },
-    ChatRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const ChatView(),
-      );
-    },
     ConceptDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<ConceptDetailsRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -49,12 +43,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    FeedbackRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const FeedbackView(),
-      );
-    },
     ForgotPasswordRoute.name: (routeData) {
       final args = routeData.argsAs<ForgotPasswordRouteArgs>(
           orElse: () => const ForgotPasswordRouteArgs());
@@ -70,14 +58,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomeView(),
-      );
-    },
-    NewFeedbackRoute.name: (routeData) {
-      final args = routeData.argsAs<NewFeedbackRouteArgs>(
-          orElse: () => const NewFeedbackRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: NewFeedbackView(key: args.key),
       );
     },
     OnboardingRoute.name: (routeData) {
@@ -179,20 +159,6 @@ class AiLibrarianRouteArgs {
 }
 
 /// generated route for
-/// [ChatView]
-class ChatRoute extends PageRouteInfo<void> {
-  const ChatRoute({List<PageRouteInfo>? children})
-      : super(
-          ChatRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ChatRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [ConceptDetailsView]
 class ConceptDetailsRoute extends PageRouteInfo<ConceptDetailsRouteArgs> {
   ConceptDetailsRoute({
@@ -269,20 +235,6 @@ class ConceptWorksRouteArgs {
 }
 
 /// generated route for
-/// [FeedbackView]
-class FeedbackRoute extends PageRouteInfo<void> {
-  const FeedbackRoute({List<PageRouteInfo>? children})
-      : super(
-          FeedbackRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'FeedbackRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [ForgotPasswordView]
 class ForgotPasswordRoute extends PageRouteInfo<ForgotPasswordRouteArgs> {
   ForgotPasswordRoute({
@@ -332,35 +284,6 @@ class HomeRoute extends PageRouteInfo<void> {
   static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [NewFeedbackView]
-class NewFeedbackRoute extends PageRouteInfo<NewFeedbackRouteArgs> {
-  NewFeedbackRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          NewFeedbackRoute.name,
-          args: NewFeedbackRouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'NewFeedbackRoute';
-
-  static const PageInfo<NewFeedbackRouteArgs> page =
-      PageInfo<NewFeedbackRouteArgs>(name);
-}
-
-class NewFeedbackRouteArgs {
-  const NewFeedbackRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'NewFeedbackRouteArgs{key: $key}';
-  }
 }
 
 /// generated route for

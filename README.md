@@ -1,104 +1,64 @@
-# Flutter Fast
+# Research Rovers: Astrolex
 
-A new Flutter project.
+Project: Astrolex is an AI-powered research assistant designed to help its users rapidly explore broad research fields.
+
+Author: Joe Muller
+
+License: MIT
 
 # Getting Started
 
+The Astrolex application relies on 3 technologies:
+1. [Flutter](https://flutter.dev/) (Android/iOS applications)
+2. [Firebase](https://firebase.google.com/) (Backend)
+3. [PaLM API](https://developers.generativeai.google/) (AI) 
+
+To run the application, perform the following steps in order:
+
+## Flutter Setup
+1. [Install Flutter](https://docs.flutter.dev/get-started/install)
+2. [Set up an editor](https://docs.flutter.dev/get-started/editor) (I use Android Studio)
+3. Clone this repository
+4. Run `flutter pub get` in the root directory of the project. All dependencies are listed in the `pubspec.yaml` file at the root of the project and can be found on [pub.dev](https://pub.dev/).
+5. Setup Firebase (see below)
+
 ## Firebase Setup
+1. Create a Firebase account (free tier is fine)
+2. Create a new project (any name is fine)
+3. [Enable Firebase Authentication](https://firebase.google.com/docs/auth/where-to-start) and ensure that the "Email/Password" sign-in method is enabled
+4. [Enable Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart) and create a new database
 
-In the root of your project, run the following command:
+## Flutter and Firebase Setup
+1. Navigate to the root of the Astrolex project
+2. Install the [flutterfire_cli](https://firebase.google.com/docs/flutter/setup?platform=ios#install-cli-tools) by running `dart pub global acivate flutterfire_cli`
+3. Run `flutterfire configure` and follow the prompts to connect your Firebase project to the Astrolex project. You only need to select Android and iOS as the platforms.
 
-```
-flutterfire config
-```
+Completing these steps will add a `firebase_options.dart` file to the lib directory.
 
-## Config.json
+## PaLM API Setup
+Follow the [steps listed here to get an PaLM API key from MakerSuite](https://developers.generativeai.google/tutorials/setup). [MakerSuite](https://makersuite.google.com/app/home) is a Google service that allows you to use the PaLM API for free. You will need to create a MakerSuite account and then create a new project. Once you have a project, you can create an API key.
 
-In the assets folder of your project, fill in the missing environment variables in the config.json file.
+Once you have an API key, move on to the next section.
 
-The following variable will come from RevenueCat:
+## Environment Variable Setup
+The goal of this section is to securely pass your PaLM API key to the mobile application.
 
-- GOOGLE_SDK_KEY
-- IOS_SDK_KEY
-- AMAZON_SDK_KEY
+**Option 1:** 
+1. Add your API key to the `config.json` file in the `assets` directory
+2. Run the Flutter app using the following command: `flutter run --dart-define-from-file=assets/config.json`
 
-### App Logo
-
-In the assets folder of your project, replace the app_logo.png file with your own app logo. Then run the following command to update the app icon:
-
-```
-flutter pub run flutter_launcher_icons
-```
-
-## RevenueCat
-Use structured [product IDs](https://www.revenuecat.com/docs/android-products#tips-for-creating-robust-product-ids):
-
-**Google Play**
-Product ID: app_entitlement_version
-
-Base Plan: duration-renewaltype (eg. monthly-autorenewing)
-
-**RC Steps:**
-1. Locate API keys and add to config.json
-2. Create Entitlements
-3. Add/Import Products
-4. Associate Entitlements with Products
-5. Create Offering
-6. Add Packages to Offering
-7. Add Products to Packages
-
-
-# Deployment
-
-## Android
-
-### Sign App
+**Option 2:**
+1. Pass your API key in the run command directly: 
 ```agsl
-keytool -genkey -v -keystore ~path/to/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+flutter run --dart-define=PALM_API_KEY=<YOUR_API_KEY>
 ```
+The important part is that the name of the environment variable is "PALM_API_KEY".
 
-### First Release
-The `flutter build` command defaults to using the release build configuration. To create a release build, run the following command:
-```agsl
-flutter build appbundle
-```
+## Run the Application
+You can run the application on a real device or on a simulator/emulator. This section of the Flutter docs shows you how to [select a run target](https://docs.flutter.dev/tools/android-studio#running-and-debugging).
 
-### Subsequent Releases
-Run the Fastlanes:
-```agsl
-cd android
-fastlane internal
-```
+When the application first loads, you will be signed out. Create an account using an email and password. Once you are signed in, you can use the application.
 
-## IOS
-
-### First Release
-```agsl
-flutter build ipa
-```
-
-### Subsequent Releases
-Run the Fastlanes:
-```agsl
-cd ios
-fastlane beta
-```
-
-### Shorebird
-
-To use Shorebird, follow
-the getting started steps in the [official docs](https://docs.shorebird.dev/).
-
-### IOS Screenshots
-
-Devices for [screenshots](https://stackoverflow.com/questions/53297870/wrong-screenshot-size-in-xcode-10-using-simulator):
-
-- 6.5 inch - iPhone 12 Pro Max
-- 5.5 inch - iPhone 8 Plus
-- iPad Pro (3rd gen) - iPad Pro (12.9 inch)
-- iPad Pro(2nd gen) - iPad Pro (12.9 inch)
-
-# Miscellaneous
-
-- Occasionally, you may need to update th distributionUrl in android/gradle/wrapper/gradle-wrapper.properties to the latest version of gradle. You can
-  find the latest version [here](https://services.gradle.org/distributions/).
+# Application Structure
+The main source code for the application lives in the `lib` directory. The `lib` directory contains the following subdirectories:
+- app

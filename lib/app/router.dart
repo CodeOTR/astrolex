@@ -11,14 +11,11 @@ import 'package:astrolex/features/authentication/ui/forgot_password_view.dart';
 import 'package:astrolex/features/authentication/ui/profile_view.dart';
 import 'package:astrolex/features/authentication/ui/register_view.dart';
 import 'package:astrolex/features/authentication/ui/sign_in_view.dart';
-import 'package:astrolex/features/feedback/ui/feedback/feedback_view.dart';
-import 'package:astrolex/features/feedback/ui/new_feedback/new_feedback_view.dart';
 import 'package:astrolex/features/home/ui/home/home_view.dart';
 
 import 'package:astrolex/features/home/ui/onboarding/onboarding_view.dart';
 import 'package:astrolex/features/settings/ui/settings/settings_view.dart';
 import 'package:astrolex/features/shared/utils/navigation/auth_guard.dart';
-import 'package:astrolex/modules/chat/ui/chat/chat_view.dart';
 import 'package:openalex/models/models.dart';
 
 part 'router.gr.dart';

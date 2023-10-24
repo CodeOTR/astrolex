@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:astrolex/app/get_it.dart';
 import 'package:astrolex/app/router.dart';
 import 'package:astrolex/app/services.dart';
@@ -21,14 +20,7 @@ Future<void> main() async {
       provider: const AssetImage('assets/images/logo.png'),
       brightness: Brightness.dark);
 
-  await SentryFlutter.init(
-    (options) {
-      options.dsn = const String.fromEnvironment('SENTRY_DSN');
-    },
-    appRunner: () => runApp(const MainApp()),
-  );
-
-  // runApp(const MainApp());
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -46,7 +38,6 @@ class MainApp extends StatelessWidget {
             themeMode: mode,
             routerConfig: router.config(
               navigatorObservers: () => [
-                SentryNavigatorObserver(),
                 BasicObserver(),
               ],
             ),

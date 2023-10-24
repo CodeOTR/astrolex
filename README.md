@@ -17,9 +17,9 @@ To run the application, perform the following steps in order:
 
 ## Flutter Setup
 1. [Install Flutter](https://docs.flutter.dev/get-started/install)
-2. [Set up an editor](https://docs.flutter.dev/get-started/editor) (I use Android Studio)
+2. [Set up an editor](https://docs.flutter.dev/get-started/editor) (I use Android Studio. VS Code is also popular). You will need to install the Dart and Flutter plugins for your editor.
 3. Clone this repository
-4. Run `flutter pub get` in the root directory of the project. All dependencies are listed in the `pubspec.yaml` file at the root of the project and can be found on [pub.dev](https://pub.dev/).
+4. Run `flutter pub get` in the root directory of the project to fetch dependencies. All dependencies are listed in the `pubspec.yaml` file at the root of the project and can be found on [pub.dev](https://pub.dev/).
 5. Setup Firebase (see below)
 
 ## Firebase Setup
@@ -60,5 +60,7 @@ You can run the application on a real device or on a simulator/emulator. This se
 When the application first loads, you will be signed out. Create an account using an email and password. Once you are signed in, you can use the application.
 
 # Application Structure
-The main source code for the application lives in the `lib` directory. The `lib` directory contains the following subdirectories:
-- app
+The main source code for the application lives in the `lib` directory. The `lib` directory contains the following items:
+- app (directory): Contains feature-agnostic components that are used by the entire application
+- features (directory): Contains feature-specific components that are used by a single feature
+- main.dart (file): The entry point for the application

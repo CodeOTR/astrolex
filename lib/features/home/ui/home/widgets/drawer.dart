@@ -1,5 +1,4 @@
 import 'package:astrolex/app/theme.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:astrolex/app/text_theme.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -34,22 +33,6 @@ class HomeDrawer extends StatelessWidget {
                       router.popAndPush(const ProfileRoute());
                     },
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.thumb_up),
-                    title: const Text('Leave Feedback'),
-                    onTap: () {
-                      router.popAndPush(NewFeedbackRoute());
-                    },
-                  ),
-                  if (kDebugMode)
-                    ListTile(
-                      leading: const Icon(Icons.visibility),
-                      title: const Text('View Feedback'),
-                      subtitle: const Text('Debug only'),
-                      onTap: () {
-                        router.popAndPush(const FeedbackRoute());
-                      },
-                    ),
                 ],
               ),
             ),

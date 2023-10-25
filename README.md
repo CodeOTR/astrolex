@@ -64,3 +64,14 @@ The main source code for the application lives in the `lib` directory. The `lib`
 - app (directory): Contains feature-agnostic components that are used by the entire application
 - features (directory): Contains feature-specific components that are used by a single feature
 - main.dart (file): The entry point for the application
+
+# How to Use
+## Manual Mode
+When the app is in manual mode, you will need to manually navigate from screen to screen by tapping on works, concepts, and papers.
+
+## Assisted Mode
+When in assisted mode, the app will repeatedly use OpenAlex and the PaLM API to suggest new works, questions, and search terms (colors are for dark mode)
+- Tap on a work tile to read more about that work (grey)
+- Tap on the plus icon next to a work to send that work to the assistant. This will summarize the abstract, provide follow-up questions, and suggest search terms
+- Tap on a follow-up question (blue) to have the PaLM API respond directly
+- Tap on a search term (green) to search OpenAlex for that term

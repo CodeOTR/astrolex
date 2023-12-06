@@ -2,6 +2,8 @@
 
 Project: Astrolex is an AI-powered research assistant designed to help its users rapidly explore broad research fields.
 
+GPT: https://chat.openai.com/g/g-2R2VxJBw3-astrolex
+
 Author: Joe Muller
 
 License: MIT
